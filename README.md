@@ -1,7 +1,7 @@
 <div align="center">
 <picture>
-    <source srcset="https://imgur.com/5bYAzsb.png" media="(prefers-color-scheme: dark)">
-    <source srcset="https://imgur.com/Os03JoE.png" media="(prefers-color-scheme: light)">
+    <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/University_of_Los_Andes_logo.svg/" media="(prefers-color-scheme: dark)">
+    <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/University_of_Los_Andes_logo.svg/" media="(prefers-color-scheme: light)">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/University_of_Los_Andes_logo.svg/1726px-University_of_Los_Andes_logo.svg.png" alt="Escudo UNIANDEES" width="350px">
 </picture>
 
