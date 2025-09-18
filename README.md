@@ -17,6 +17,7 @@
 </div>
 
 # Algoritmo 1 
+
 $$
 dp[i][n] =
 \begin{cases}
@@ -41,9 +42,11 @@ A contnuación se presenta un ejemplo:
 
 ## Complejidad
 Notese que en el ejemplo anterior, se recorrieron todos los valores de $n$ para hallar la creatividad máxima de $n=13$. Ya que este proceso se debe hacer para cada valor de $n$, entonces esta complejidad seria de $O(n^2)$. Ademas de esto, se realiza por cada celda, por tanto la complejidad final es de:
+
 $$
 O(kn^2)
 $$
+
 ## Optimización
 Al realizar la tabla, vemos que muchos valores son 0, o sencillamente se repiten. Para evitar estos valores proponemos guardar una lista de _candidatos_ En los cuales solo se guardan solo los valores únicos de creatividad posibles y además, mayores a los anteriores. En otras palabras hacemos un arreglo monotonamente creciente.
 
@@ -58,15 +61,18 @@ Luego solo realizamos la iteracion en estos valores.
 ![Animación](assets/algoritmo1O.gif)
 
 Por lo que la complejidad final es de
+
 $$
     O(kNC)
 $$
+
 Siendo $C$ la cantidad de candidatos que es aproximadamente $10\log_{10}{N}$
 Dejando entonces
 
 $$
     O(kN\log N)
 $$
+
 Finalmente Notese que para los calculos, solo dependemos de la fila $1$ y $i-1$, junto al arreglo $C$ que es $<< N$ por lo que en total requririamos de una cantidad de memoria
 $$
 O(3N)
