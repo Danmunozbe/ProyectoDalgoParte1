@@ -1,8 +1,8 @@
 <div align="center">
 <picture>
-    <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/University_of_Los_Andes_logo.svg/" media="(prefers-color-scheme: dark)">
-    <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/University_of_Los_Andes_logo.svg/" media="(prefers-color-scheme: light)">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/University_of_Los_Andes_logo.svg/1726px-University_of_Los_Andes_logo.svg.png" alt="Escudo UNIANDEES" width="350px">
+    <source srcset="https://imgur.com/5RiEY87" media="(prefers-color-scheme: dark)">
+    <source srcset="https://imgur.com/5RiEY87" media="(prefers-color-scheme: light)">
+    <img src="https://imgur.com/5RiEY87" alt="Escudo UNIANDES" width="350px">
 </picture>
 
 <h3>ISIS 1105 Diseño y Análisis de Algoritmos</h3>
