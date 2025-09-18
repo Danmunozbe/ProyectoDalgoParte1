@@ -74,6 +74,7 @@ $$
 $$
 
 Finalmente Notese que para los calculos, solo dependemos de la fila $1$ y $i-1$, junto al arreglo $C$ que es $<< N$ por lo que en total requririamos de una cantidad de memoria
+
 $$
-O(3N)
+O(3N) \to O(N)
 $$
