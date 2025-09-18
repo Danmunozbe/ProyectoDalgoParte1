@@ -1,8 +1,8 @@
 <div align="center">
 <picture>
-    <source srcset="https://imgur.com/5RiEY87" media="(prefers-color-scheme: dark)">
-    <source srcset="https://imgur.com/5RiEY87" media="(prefers-color-scheme: light)">
-    <img src="https://imgur.com/5RiEY87" alt="Escudo UNIANDES" width="350px">
+    <source srcset="https://imgur.com/5RiEY87.png" media="(prefers-color-scheme: dark)">
+    <source srcset="https://imgur.com/5RiEY87.png" media="(prefers-color-scheme: light)">
+    <img src="https://imgur.com/5RiEY87" alt="Escudo UNIANDEES" width="350px">
 </picture>
 
 <h3>ISIS 1105 Diseño y Análisis de Algoritmos</h3>
@@ -61,7 +61,7 @@ Por lo que la complejidad final es de
     O(kNC)
 \]
 Siendo $C$ la cantidad de candidatos que es aproximadamente $10\log_{10}{N}$
-Dejando entonces
+Djando entonces
 
 \[
     O(kN\log N)
