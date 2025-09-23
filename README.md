@@ -17,13 +17,13 @@
 </div>
 
 # Algoritmo 1 
-
+Este algoritmo busca guardar la maxima creatividad de usar $i$ celdas y repartir $n$ energía. 
 $$
 dp[i][n] =
 \begin{cases}
 0 & \text{si } i=0 \lor n=0, \\
 \text{creativity}(n) & \text{si } i=1, \\
-\max\limits_{0 \leq x \leq n} \big( dp[i-1][n-x] + dp[1][x] \big) & \text{si } i > 1 \land n>0.
+\max\limits_{0 \leq x \leq n} \big(dp[i][n],\ dp[i-1][n-x] + dp[1][x] \big) & \text{si } i > 1 \land n>0.
 \end{cases}
 $$
 
@@ -35,6 +35,8 @@ $$
 **Principios clave:**
 1. El orden en que se llenan las celdas no afecta el resultado.  
 2. La creatividad depende únicamente de la cantidad de energía asignada a una celda, y no de cuál celda específica se trate.
+
+La idea detras del algoritmo es que para tener la máxima cantidad de creatividad en $k$ celdas con $N$ energía, se puede conseguir hallando la máxima cantidad de energia entre repartir $N-x$ energía en $k-1$ celdas más repartir en **1** celda, $x$ energía. Esto puede empezarse desde $i=1$ haciendo una matriz con caso base $n=0 \lor i=0$ hasta  $k$ con una matriz.
 
 A contnuación se presenta un ejemplo:
 
@@ -66,15 +68,23 @@ $$
     O(kNC)
 $$
 
-Siendo $C$ la cantidad de candidatos que es aproximadamente $10\log_{10}{N}$
-Dejando entonces
+### Hallar la cota de $C$
 
-$$
-    O(kN\log N)
-$$
+A continuación mostramos una gráfica mostrando el tamaño de $C$ contra diferentes de N para 200 combinaciones de peso diferentes.
+![alt text](assets/lenC.png)
 
-Finalmente Notese que para los calculos, solo dependemos de la fila $1$ y $i-1$, junto al arreglo $C$ que es $<< N$ por lo que en total requririamos de una cantidad de memoria
+Como podemos observar, el tamaño parece estar acotado por una funcion $\log_{10} N$, lo cual implica que $C = O(\log N)$
 
+Lo que hace que la complejidad final sea de
+
+$$O(kN\log N)$$
+
+
+## Inconveientes
+A primera vista esto mejora la velocidad, pero haciendo pruebas muestra que el algoritmo no siempre funciona.
+Para ver que tan correcto es el algoritmo, se realizan 10 iteraciones de pesos diferentes. Como se realiza la tabla segun la definicion iterativa, entonces hallar $dp[k][N]$ tambien implica hallar y guardar $d[i][m], \quad 0 \le i \le k, \; 0 \le m \le n$. Debido a que los casos bases son iguales para ambos metodos, para hallar el porcentaje de correctidud tomamos desde $i=2 \ m=3$ con un valor de $k=1000$ y $N=1000$. Estos fueron los resultados:
 $$
-O(3N) \to O(N)
+\texttt{Porcentaje de coincidencia: 99.99\%} \\
+\texttt{Cantidad de iguales: 9969062} \\
+\texttt{Cantidad de Total: 9970020} \\
 $$
