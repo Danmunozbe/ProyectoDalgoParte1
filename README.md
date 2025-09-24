@@ -70,7 +70,7 @@ $$
 
 ### Hallar la cota de $C$
 
-A continuación mostramos una gráfica mostrando el tamaño de $C$ contra diferentes de N para 200 combinaciones de peso diferentes.
+A continuación mostramos una gráfica mostrando el tamaño de $C$ contra diferentes valores de N para 200 combinaciones de peso diferentes.
 ![alt text](assets/lenC.png)
 
 Como podemos observar, el tamaño parece estar acotado por una funcion $\log_{10} N$, lo cual implica que $C = O(\log N)$
