@@ -18,6 +18,7 @@
 
 # Algoritmo 1 
 Este algoritmo busca guardar la maxima creatividad de usar $i$ celdas y repartir $n$ energía. 
+
 $$
 dp[i][n] =
 \begin{cases}
@@ -83,8 +84,13 @@ $$O(kN\log N)$$
 ## Inconveientes
 A primera vista esto mejora la velocidad, pero haciendo pruebas muestra que el algoritmo no siempre funciona.
 Para ver que tan correcto es el algoritmo, se realizan 10 iteraciones de pesos diferentes. Como se realiza la tabla segun la definicion iterativa, entonces hallar $dp[k][N]$ tambien implica hallar y guardar $d[i][m], \quad 0 \le i \le k, \; 0 \le m \le n$. Debido a que los casos bases son iguales para ambos metodos, para hallar el porcentaje de correctidud tomamos desde $i=2 \ m=3$ con un valor de $k=1000$ y $N=1000$. Estos fueron los resultados:
+
 $$
 \texttt{Porcentaje de coincidencia: 99.99\%} \\
 \texttt{Cantidad de iguales: 9969062} \\
 \texttt{Cantidad de Total: 9970020} \\
 $$
+
+# Algoritmo Greedy
+Por cuestiones de complejdiad temporal proponemos un tercer algotimo Greedy rapido (pero no siempre correcto) 
+
