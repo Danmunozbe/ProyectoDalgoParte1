@@ -1,12 +1,10 @@
 import sys
 import heapq
 
-# ==== Límites (ajústalos si quieres ser más conservador/atrevido) ====
 BUDGET_EXACT = 80_000_000    # tiempo aprox: usa exacta si k * n^2 <= 8e7
 MAX_DP_CELLS = 2_000_000     # memoria aprox: usa exacta si k * (n+1) <= 2e6
 BUDGET_OPT   = 100_000_000   # tiempo aprox: usa opt si k * n * |C| <= 1e8
 
-# ---- Aquí van tus algoritmos y función creativity ----
 def creativity(x, P):
     """
     Calcula la creatividad de asignar x unidades de energía a una celda,
@@ -17,7 +15,7 @@ def creativity(x, P):
     while x > 0:
         d = x % 10
         if d in (3, 6, 9):
-            mult = d // 3  # 3->1, 6->2, 9->3
+            mult = d // 3 
             score += mult * P[pos]
         pos += 1
         x //= 10
@@ -55,7 +53,7 @@ def algoritmo1_sol(k, N, Pi):
     return dp[k][N]
 
 def algoritmo1_opt_sol_with_dp1(k, N, dp1, candidates):
-    prev = dp1[:]  # base: 1 celda
+    prev = dp1[:]
     for _ in range(2, k+1):
         act = [0]*(N+1)
         for s in range(3, N+1):
@@ -139,10 +137,10 @@ def resolver(k, n, Pi):
     if k * n * max(1, len(candidates)) <= BUDGET_OPT:
         return algoritmo1_opt_sol_with_dp1(k, n, dp1, candidates)
 
-    # 3) Si nada cabe, greedy ultra-rápido
+    # 3) Si nada cabe, greedy
     return algoritmo1_greedy(k, n, Pi)
 
-# ---------------- MAIN -----------------
+
 def main():
     linea = sys.stdin.readline()
     ncasos = int(linea.strip())

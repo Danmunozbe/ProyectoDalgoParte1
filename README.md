@@ -81,7 +81,7 @@ Lo que hace que la complejidad final sea de
 $$O(kN\log N)$$
 
 
-## Inconveientes
+## Inconvenientes
 A primera vista esto mejora la velocidad, pero haciendo pruebas muestra que el algoritmo no siempre funciona.
 Para ver que tan correcto es el algoritmo, se realizan 10 iteraciones de pesos diferentes. Como se realiza la tabla segun la definicion iterativa, entonces hallar $dp[k][N]$ tambien implica hallar y guardar $d[i][m], \quad 0 \le i \le k, \; 0 \le m \le n$. Debido a que los casos bases son iguales para ambos metodos, para hallar el porcentaje de correctidud tomamos desde $i=2 \ m=3$ con un valor de $k=1000$ y $N=1000$. Estos fueron los resultados:
 
@@ -91,7 +91,43 @@ $$
 \texttt{Cantidad de Total: 9970020} \\
 $$
 
+
+
 # Algoritmo Greedy
-Por cuestiones de complejdiad temporal proponemos un tercer algotimo Greedy rapido pero no siempre correcto.
-El diseño del algoritmo greedy calcula la creatividad que aporta cada posible cantidad x de energia, divide ese valor entre x y escoge la mejor relacion de creatividad por unidad de energia. Luego reparte esa cantidad de energia en las k celdas y si sobra energia la coloca en una celda sobrante o lo añade a una celda existente. Aunque no garantiza siempre la mejor solucion, puede encajar con ella en muchos casos porque se maximiza el uso del numero con mayor puntuacion. El algoritmo es util pues tanto la puntuacion por creatividad como encontrar el mejor ratio tienen complejidad O(n) y el resto de operaciones son aritmeticas y cuestan O(1), esto quiere decir que para casos demasiado grandes se ejecuta con alta velocidad y luego permite revisar otros casos de forma mas precisa.
+
+Por cuestiones de complejidad temporal, proponemos un **tercer algoritmo Greedy**, rápido pero que no garantiza siempre la solución óptima.
+
+La idea del algoritmo es la siguiente:
+
+1. **Calcular la creatividad por unidad de energía**
+   Para cada posible cantidad ( x ) de energía, se calcula:
+   $$
+   r(x) = \frac{\text{creatividad}(x)}{x}
+   $$
+   donde $\text{creatividad}(x)$ es la puntuación asociada a gastar (x) unidades de energía.
+
+2. **Seleccionar la mejor relación creatividad/energía**
+   Se escoge $x^*$ tal que:
+   $$
+   x^* = \arg\max_{x} r(x)
+   $$
+
+3. **Distribuir energía entre las (k) celdas**
+   Se reparte $x^*$ unidades de energía en cada una de las $k$ celdas.
+   Si sobra energía después de la distribución, se asigna a una celda sobrante o se añade a una celda existente.
+
+Esto implica
+
+* Maximiza el uso del número con mayor puntuación.
+* Rapido: calcular $r(x)$ tiene complejidad **$O(n)$** y las operaciones adicionales son **$O(1)$**.
+* Ideal para casos demasiado grandes donde los algoritmos exactos serían demasiado costosos.
+* No garantiza siempre la solución óptima.
+* Puede no cubrir todos los casos extremos donde una combinación distinta de energías proporcione mejor creatividad total.
+
+# Justificación de Límites
+En el programa se eligieron tres limites para definir que algoritmo usar. Los valores fueron elegidos como aproximaciones basadas en pruebas experimentales para equilibrar precisión y tiempo.
+
+* **80 000 000** → usar **algoritmo exacto** cuando el coste temporal es viable.
+* **100 000 000** → usar **algoritmo optimizado** cuando el coste exacto se vuelve inviable en el tiempo.
+* Si ninguno de los anteriores cumple, se usa **algoritmo greedy** como última opción.
 
