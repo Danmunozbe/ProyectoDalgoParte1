@@ -92,5 +92,6 @@ $$
 $$
 
 # Algoritmo Greedy
-Por cuestiones de complejdiad temporal proponemos un tercer algotimo Greedy rapido (pero no siempre correcto) 
+Por cuestiones de complejdiad temporal proponemos un tercer algotimo Greedy rapido pero no siempre correcto.
+El diseño del algoritmo greedy calcula la creatividad que aporta cada posible cantidad x de energia, divide ese valor entre x y escoge la mejor relacion de creatividad por unidad de energia. Luego reparte esa cantidad de energia en las k celdas y si sobra energia la coloca en una celda sobrante o lo añade a una celda existente. Aunque no garantiza siempre la mejor solucion, puede encajar con ella en muchos casos porque se maximiza el uso del numero con mayor puntuacion. El algoritmo es util pues tanto la puntuacion por creatividad como encontrar el mejor ratio tienen complejidad O(n) y el resto de operaciones son aritmeticas y cuestan O(1), esto quiere decir que para casos demasiado grandes se ejecuta con alta velocidad y luego permite revisar otros casos de forma mas precisa.
 
